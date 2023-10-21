@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500&display=swap");
+
+/* .Seating-btn {
+} */
+
+.Seating-btn h1 {
+  /* border: 1px solid; */
+  font-size: 15px;
+  text-align: center;
+  position: fixed;
+  bottom: 8vh;
+  left: 1vw;
+  z-index: 5;
+  height: 55px;
+  width: 80px;
+  border-radius: 5px;
+  background-color: #504099a8;
+  color: rgba(255, 255, 255, 0.74);
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Seating-btn h1:hover {
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
+}
+.icon {
+  font-size: 30px;
+}
+
+/* //Menu Css */
+.showMenu {
+  background-color: #352F44;
+  position: fixed;
+  top: 12vh;
+  left: 1vw;
+  min-height: 68vh;
+  min-width: 23vw;
+  z-index: 5;
+  border-radius: 7px;
+  transform: translateX(0px);
+  transition: 0.3s ease-in-out;
+}
+.hideMenu {
+  background-color: #352F44;
+  position: fixed;
+  top: 12vh;
+  left: 1vw;
+  min-height: 68vh;
+  min-width: 23vw;
+  z-index: 5;
+  border-radius: 7px;
+  transform: translateX(-600px);
+  transition: 0.3s ease-in-out;
+}
+.showMenu input {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.575);
+  width: 95%;
+  margin: 0px 7px;
+  margin-top: 7px;
+  border-radius: 5px;
+  padding: 3px 7px;
+  color: white;
+}
+input::placeholder {
+  color: rgba(255, 255, 255, 0.39);
+}
+
+.sorting-btns-cont {
+  /* border: 1px solid white; */
+  margin: 7px;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.btns-style {
+  background-color: #f1efef;
+  min-width: 32%;
+  border-radius: 5px;
+  transition: 0.2s ease-in-out;
+  border: 1px solid transparent;
+}
+.btns-style:hover {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.322);
+  transition: 0.2s ease-in-out;
+  color: white;
+}
+.showing-users-cont {
+  /* border: 1px solid white; */
+  margin: 7px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.card {
+  /* border: 1px solid greenyellow; */
+  background-color: grey;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card:hover {
+  background-color: rgba(128, 128, 128, 0.829);
+}
+.card h1 {
+  /* border: 1px solid; */
+  color: #dad4b5;
+  font-size: 45px;
+  font-family: "Poppins", sans-serif;
+}
+.card p {
+  /* border: 1px solid; */
+  color: white;
+  font-size: 17px;
+  width: 100%;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
