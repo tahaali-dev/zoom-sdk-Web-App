@@ -4,30 +4,47 @@ import "./JoinFrom.css";
 import { useDispatch, useSelector } from "react-redux";
 import { SetfromData } from "../Redux/LogregSlice";
 import toast from "react-hot-toast";
+//Imports------------------------------------------------
 
 const JoinForm = () => {
+  //Utils--------
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  //From States
+  //Form States------------------------
+  const [userName, setuserName] = useState();
+  const [email, setemail] = useState();
   const [meetingId, setMettingId] = useState();
   const [password, setPassword] = useState();
-  const [role, setRole] = useState();
 
+  //Handle Join Func
   const HandleJoin = (e) => {
     e.preventDefault();
-    if (!meetingId || !password || !role) {
+    if (!meetingId || !password || !email || !userName) {
       toast.error("All Feilds Required");
     } else {
-      dispatch(SetfromData({ meetingId, password, role }));
+      dispatch(SetfromData({ meetingId, password, userName, email }));
       navigate("/meeting");
     }
   };
 
+  //-----Jsx Return--------------
   return (
     <div className="form-cont">
       <form action="">
         <h2>Welcome Back 😃</h2>
+        <input
+          type="text"
+          placeholder="Enter Your Good Name 📛"
+          value={userName}
+          onChange={(e) => setuserName(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Enter Your Email 📧"
+          value={email}
+          onChange={(e) => setemail(e.target.value)}
+        />
         <input
           type="number"
           placeholder="Enter Meeting Id 🆔"
@@ -41,11 +58,6 @@ const JoinForm = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <select value={role} onChange={(e) => setRole(e.target.value)}>
-          <option value="">Select Role</option>
-          <option value="1">Host</option>
-          <option value="0">User</option>
-        </select>
         <button onClick={HandleJoin}>Connect Now</button>
       </form>
     </div>

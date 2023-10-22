@@ -3,12 +3,11 @@ import "./Seating.css";
 import { MdOutlineEventSeat } from "react-icons/md";
 
 const Seating = () => {
+  //State For Menu and Participantes-----
   const [Menu, Setmenu] = useState("hideMenu");
   const [AllParticipantes, SetAllParticipantes] = useState();
 
-  // Parse the JSON back to its original format
-  //   const AttendeesList = JSON.parse(localStorage.getItem("attendeesList"));
-
+  //UseEffect For  getAttendeeslist
   useEffect(() => {
     window.ZoomMtg.getAttendeeslist({
       success: (res) => {
@@ -18,7 +17,7 @@ const Seating = () => {
     });
   }, [Menu]);
 
-  //   Sorting Func
+  // Sorting Func
   function sortParticipantsArray(participants, type) {
     if (type === "ascending") {
       let asendingparts = participants.slice().sort((a, b) => {
@@ -45,10 +44,11 @@ const Seating = () => {
     }
   }
 
-  //Search Data
+  //Search Data State 
   const [searchInput, setSearchInput] = useState("");
   const [filteredArray, setFilteredArray] = useState([]);
 
+  //USe effect For Search Input
   useEffect(() => {
     // Define the filter function
     function filterArrayByUsername(array, search) {

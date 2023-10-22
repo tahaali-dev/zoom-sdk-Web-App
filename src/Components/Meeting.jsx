@@ -2,13 +2,18 @@ import React, { useEffect, useState } from "react";
 import { KJUR } from "jsrsasign";
 import Seating from "./Seating";
 import { useSelector } from "react-redux";
+import Loader from "./Loader/Loader";
+//Imports-------------------------
 
-const Meeting = ({ payload }) => {
+const Meeting = () => {
+  //Success State------
   const [Success, setSuccess] = useState(false);
 
+  //Getting Form Data From Redux Store-----
   const keys = useSelector((state) => state.app.formData);
-  console.log(keys.meetingId,keys.password,keys.role);
+  console.log(keys.meetingId, keys.password, keys.role);
 
+  //Use Effect Top Execute Join And init,Sdk Script---------
   useEffect(() => {
     // Create a script element
     const script = document.createElement("script");
@@ -27,12 +32,10 @@ const Meeting = ({ payload }) => {
       var sdkKey = "YorbbX21RoS_IoZOv4WKQw";
       var meetingNumber = keys.meetingId;
       var passWord = keys.password;
-      var role = keys.role;
-      var userName = "React";
-      var userEmail = "aliasgersub34@gmail.com";
+      var role = 0;
+      var userName = keys.userName;
+      var userEmail = keys.email;
       var leaveUrl = "http://localhost:5173";
-      var registrantToken = "";
-      var zakToken = "";
 
       //Functions--------
       let getSignature = async () => {
@@ -113,6 +116,7 @@ const Meeting = ({ payload }) => {
     document.body.appendChild(script);
   }, []);
 
+  //-----------Jsx Return --------
   return (
     <>
       {/* <Seating /> */}
@@ -121,9 +125,9 @@ const Meeting = ({ payload }) => {
           <Seating />
         </>
       ) : (
-        <>
-          <h1>Meeting is here</h1>
-        </>
+        <div className="LoaderCont">
+          <Loader />
+        </div>
       )}
     </>
   );

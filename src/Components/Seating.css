@@ -126,3 +126,11 @@ input::placeholder {
   text-align: center;
   font-family: "Poppins", sans-serif;
 }
+
+.LoaderCont{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
